@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Candidato</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px; 
+            text-decoration: none;
+            padding: 0.5rem 2rem; 
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 4rem 1rem;
+            flex: 1;
+        }
+
+        .details-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .cv-section {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .cv-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .cv-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .cv-label {
+            font-weight: 600;
+            color: #00BFFF;
+        }
+
+        /* Botão "Voltar para Vagas" */
+        .back-btn {
+            background-color: #00BFFF;
+            color: #000;
+            font-weight: 600;
+            border-radius: 5px;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            background-color: #0099cc;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .cv-section {
+                max-width: 95%;
+            }
+            .details-section h1 {
+                font-size: 2rem;
+            }
+            .cv-section p {
+                font-size: 1rem;
+            }
+            .back-btn {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="indexre.html">
+                    <img src="foto.png" alt="RecruitAI Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="vaga.html">Criar Vaga</a></li>
+                        <li class="nav-item"><a class="nav-link" href="candidatos.html">Ver Candidatos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Gerir.html">Gerir Vagas</a></li>
+                        <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Details Section -->
+        <section class="details-section">
+            <div class="container">
+                <h1>Detalhes do Candidato</h1>
+                <div class="cv-section" id="cvDetails">
+                    <!-- Conteúdo gerado pelo JavaScript -->
+                </div>
+                <button class="back-btn" onclick="window.close()">Fechar</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Recuperar o CV selecionado do localStorage
+        const cvData = JSON.parse(localStorage.getItem('selectedCandidateCV'));
+
+        const cvDetails = document.getElementById('cvDetails');
+
+        if (!cvData) {
+            cvDetails.innerHTML = '<p>Nenhum candidato selecionado.</p>';
+        } else {
+            cvDetails.innerHTML = `
+                <h2>Meu Currículo</h2>
+                <p><span class="cv-label">Nome Completo:</span> ${cvData.fullName}</p>
+                <p><span class="cv-label">Email:</span> ${cvData.email}</p>
+                <p><span class="cv-label">Telefone:</span> ${cvData.phone}</p>
+                <p><span class="cv-label">Endereço:</span> ${cvData.address}</p>
+                <p><span class="cv-label">Educação:</span> ${cvData.education}</p>
+                <p><span class="cv-label">Experiência Profissional:</span> ${cvData.experience}</p>
+                <p><span class="cv-label">Habilidades:</span> ${cvData.skills}</p>
+                <p><span class="cv-label">Idiomas:</span> ${cvData.languages}</p>
+                <p><span class="cv-label">Certificações:</span> ${cvData.certifications}</p>
+                <p><span class="cv-label">LinkedIn:</span> <a href="${cvData.linkedin}" target="_blank" style="color: #00BFFF;">${cvData.linkedin}</a></p>
+                <p><span class="cv-label">GitHub:</span> <a href="${cvData.github}" target="_blank" style="color: #00BFFF;">${cvData.github}</a></p>
+                <p><span class="cv-label">Resumo Profissional:</span> ${cvData.summary}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

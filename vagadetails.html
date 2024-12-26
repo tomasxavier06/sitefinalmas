@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Vaga</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px; 
+            text-decoration: none;
+            padding: 0.5rem 2rem; 
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 4rem 1rem;
+            flex: 1;
+        }
+
+        .details-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .details-container {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .details-container p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #00BFFF;
+        }
+
+        .back-btn {
+            background-color: #00BFFF;
+            color: #000;
+            font-weight: 600;
+            border-radius: 5px;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            margin-top: 2rem;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #0099cc;
+            color: #fff;
+        }
+
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .details-container {
+                max-width: 95%;
+            }
+            .details-section h1 {
+                font-size: 2rem;
+            }
+            .details-container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="indexem.html">
+                    <img src="foto.png" alt="RecruitAI Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="vagas.html">Ver Vagas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="candidaturas.html">Minhas Candidaturas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editar.html">Editar CV</a></li>
+                        <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="details-section">
+            <div class="container">
+                <h1>Detalhes da Vaga</h1>
+                <div class="details-container" id="detailsContainer">
+                    <!-- Conteúdo gerado pelo JavaScript -->
+                </div>
+                <div style="text-align: center;">
+                    <button class="back-btn" onclick="window.location.href='vagas.html'">Voltar para Vagas</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Recuperar a vaga selecionada
+        const selectedJob = JSON.parse(localStorage.getItem('selectedJob'));
+
+        const detailsContainer = document.getElementById('detailsContainer');
+
+        // Recuperar o objeto 'account' do Local Storage
+        const accountData = JSON.parse(localStorage.getItem('account'));
+        const userNameElement = document.getElementById('userName');
+
+        if (accountData && accountData.nome) {
+            // Substituir "Entrar" pelo nome do usuário
+            userNameElement.textContent = accountData.nome;
+            userNameElement.setAttribute('href', '#');
+
+            // Adicionar funcionalidade de logout ao clicar no nome
+            userNameElement.addEventListener('click', () => {
+                localStorage.removeItem('loggedInAccount'); // Remover a conta do Local Storage
+                window.location.href = 'index.html'; // Redirecionar para a página de login
+            });
+        }
+
+        if (!selectedJob) {
+            detailsContainer.innerHTML = '<p>Nenhuma vaga selecionada.</p>';
+        } else {
+            // Apresentar cada propriedade da vaga
+            detailsContainer.innerHTML = `
+                <p><span class="detail-label">Empresa:</span> ${selectedJob.companyName}</p>
+                <p><span class="detail-label">Vaga:</span> ${selectedJob.jobTitle}</p>
+                <p><span class="detail-label">Localização:</span> ${selectedJob.jobLocation}</p>
+                <p><span class="detail-label">Carga Horária:</span> ${selectedJob.workHours}</p>
+                <p><span class="detail-label">Salário:</span> ${selectedJob.salary}</p>
+                <p><span class="detail-label">Data de Início:</span> ${selectedJob.startDate}</p>
+                <p><span class="detail-label">Detalhes:</span> ${selectedJob.jobDetails}</p>
+                <p><span class="detail-label">Benefícios:</span> ${selectedJob.benefits}</p>
+                <p><span class="detail-label">Contact Email:</span> ${selectedJob.contactEmail}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

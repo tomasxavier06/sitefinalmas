@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Página Inicial</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            padding: 0.5rem 2rem;
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 4rem 0;
+        }
+        .hero-section img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+        }
+        .hero-content {
+            color: #ffffff;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .hero-content p {
+            font-size: 1.7em;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #333742;
+            padding: 3rem 0;
+        }
+        .about-section h2 {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+            line-height: 1.6;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #222832;
+            padding: 3rem 1rem;
+        }
+        .reviews-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .review-item {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .review-item .review-user {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .review-item .review-rating i {
+            color: #00BFFF;
+            margin-right: 5px;
+        }
+        .review-item .review-comment {
+            margin-top: 0.5rem;
+            line-height: 1.4rem;
+            font-size: 1rem;
+        }
+        .review-form {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .review-form h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .review-form label {
+            font-weight: 500;
+        }
+        .review-form .form-control {
+            background: #222832;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        .review-form button {
+            background-color: #00BFFF;
+            color: #ffffff;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem 2rem;
+        }
+        .review-form button:hover {
+            background-color: #0099cc;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: 2.2em;
+            }
+            .hero-content p {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQs.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dicas.html">Dicas de Carreira</a></li>
+                    <li class="nav-item"><a class="nav-link btn-entrar" style="padding-left: 20px; padding-right: 20px;" href="login.html">Entrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>O que os nossos utilizadores dizem:</h2>
+            <div id="reviewsContainer"></div>
+
+            <div class="review-form">
+                <h3>Deixe a sua avaliação</h3>
+                <form id="reviewForm">
+                    <label for="userName">Nome do Utilizador</label>
+                    <input type="text" id="userName" class="form-control" required>
+
+                    <label for="userRating">Classificação (1 a 5)</label>
+                    <select id="userRating" class="form-control" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="1">1 Estrela</option>
+                        <option value="2">2 Estrelas</option>
+                        <option value="3">3 Estrelas</option>
+                        <option value="4">4 Estrelas</option>
+                        <option value="5">5 Estrelas</option>
+                    </select>
+
+                    <label for="userComment">Comentário</label>
+                    <textarea id="userComment" class="form-control" rows="3" required></textarea>
+
+                    <button type="submit" style="margin-top: 1rem;">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Função para atualizar a exibição das reviews
+        function renderReviews(reviews) {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = ''; 
+
+            reviews.forEach((review) => {
+                const reviewEl = document.createElement('div');
+                reviewEl.className = 'review-item';
+
+                // Criar estrelas
+                let stars = '';
+                for (let i = 0; i < review.rating; i++) {
+                    stars += '<i class="fas fa-star"></i>';
+                }
+
+                reviewEl.innerHTML = `
+                    <div class="review-user">${review.user}</div>
+                    <div class="review-rating">${stars}</div>
+                    <div class="review-comment">${review.comment}</div>
+                `;
+                container.appendChild(reviewEl);
+            });
+        }
+
+        // Verifica se existem reviews no localStorage, caso contrário adiciona 2 iniciais
+        let storedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+        if (storedReviews.length === 0) {
+            storedReviews = [
+                { user: 'João Pereira', rating: 5, comment: 'Excelente plataforma! Ajudou-me imenso a encontrar candidatos de topo.' },
+                { user: 'Ana Silva', rating: 4, comment: 'Muito útil e intuitiva. Recomendo a todos os recrutadores!' }
+            ];
+            localStorage.setItem('reviews', JSON.stringify(storedReviews));
+        }
+
+        // Renderiza as reviews iniciais
+        renderReviews(storedReviews);
+
+        // Adicionar evento ao formulário de reviews
+        const reviewForm = document.getElementById('reviewForm');
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const user = document.getElementById('userName').value;
+            const rating = parseInt(document.getElementById('userRating').value);
+            const comment = document.getElementById('userComment').value;
+
+            const newReview = { user, rating, comment };
+            storedReviews.push(newReview);
+            localStorage.setItem('reviews', JSON.stringify(storedReviews));
+
+            // Limpar o formulário
+            reviewForm.reset();
+            // Renderizar novamente as reviews
+            renderReviews(storedReviews);
+        });
+    </script>
+</body>
+</html>

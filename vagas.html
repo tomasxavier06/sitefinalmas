@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Ver Vagas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style> 
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px; 
+            text-decoration: none;
+            padding: 0.5rem 2rem; 
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Main Section */
+        .main-section {
+            padding: 4rem 1rem;
+            flex: 1;
+        }
+        .main-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .job-table {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+        table {
+            width: 100%;
+            color: #ffffff;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #444;
+            vertical-align: middle;
+        }
+        th {
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .apply-btn, .details-btn {
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .apply-btn {
+            background-color: #00BFFF;
+            color: #000;
+        }
+
+        .apply-btn:hover {
+            background-color: #0099cc;
+            color: #fff;
+        }
+
+        .details-btn {
+            background-color: #4CAF50; /* Verde */
+            color: #000;
+            margin-left: 0.5rem;
+        }
+
+        .details-btn:hover {
+            background-color: #45a049;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .main-section h1 {
+                font-size: 2rem;
+            }
+            th, td {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="indexem.html">
+                    <img src="foto.png" alt="RecruitAI Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="vagas.html">Ver Vagas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="candidaturas.html">Minhas Candidaturas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editar.html">Editar CV</a></li>
+                        <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="main-section">
+            <div class="container">
+                <h1>Vagas Disponíveis</h1>
+                <div id="jobsContainer"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Recuperar o objeto 'account' do Local Storage
+        const accountData = JSON.parse(localStorage.getItem('account'));
+
+        // Atualizar o nome do usuário na navbar
+        const userNameElement = document.getElementById('userName');
+
+        if (accountData && accountData.nome) {
+            // Substituir "Entrar" pelo nome do usuário
+            userNameElement.textContent = accountData.nome;
+            userNameElement.setAttribute('href', '#');
+
+            // Adicionar funcionalidade de logout ao clicar no nome
+            userNameElement.addEventListener('click', () => {
+                localStorage.removeItem('loggedInAccount'); // Remover a conta do Local Storage
+                window.location.href = 'index.html'; // Redirecionar para a página de login
+            });
+        }
+
+        // Recuperar as vagas do Local Storage
+        const storedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
+
+        const jobsContainer = document.getElementById('jobsContainer');
+
+        // Função para candidatar-se a uma vaga
+        function applyForJob(job) {
+            let appliedJobs = JSON.parse(localStorage.getItem('appliedJobs')) || [];
+            
+            // Verificar se a vaga já foi adicionada
+            const alreadyApplied = appliedJobs.some(applied => applied.jobTitle === job.jobTitle && applied.companyName === job.companyName);
+            if (alreadyApplied) {
+                alert('Você já se candidatou a esta vaga!');
+                return;
+            }
+
+            appliedJobs.push(job);
+            localStorage.setItem('appliedJobs', JSON.stringify(appliedJobs));
+            alert('Candidatura enviada com sucesso!');
+        }
+
+        // Função para ver detalhes da vaga
+        function viewJobDetails(job) {
+            // Guardar a vaga selecionada no localStorage
+            localStorage.setItem('selectedJob', JSON.stringify(job));
+            // Redirecionar para a página de detalhes
+            window.location.href = 'vagadetails.html';
+        }
+
+        // Verificar se há vagas
+        if (storedJobs.length === 0) {
+            jobsContainer.innerHTML = '<p>Nenhuma vaga disponível no momento.</p>';
+        } else {
+            storedJobs.forEach((job) => {
+                const jobTable = document.createElement('div');
+                jobTable.className = 'job-table';
+
+                // Montar HTML da tabela com o botão "Candidatar" e o botão com olho
+                jobTable.innerHTML = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Vaga</th>
+                                <th>Localização</th>
+                                <th>Horas de Trabalho</th>
+                                <th>Salário</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${job.companyName}</td>
+                                <td>${job.jobTitle}</td>
+                                <td>${job.jobLocation}</td>
+                                <td>${job.workHours}</td>
+                                <td>${job.salary}</td>
+                                <td>
+                                    <button class="apply-btn">Candidatar</button>
+                                    <button class="details-btn"><i class="fas fa-eye"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+
+                const applyButton = jobTable.querySelector('.apply-btn');
+                applyButton.addEventListener('click', () => applyForJob(job));
+
+                const detailsButton = jobTable.querySelector('.details-btn');
+                detailsButton.addEventListener('click', () => viewJobDetails(job));
+
+                jobsContainer.appendChild(jobTable);
+            });
+        }
+    </script>
+</body>
+</html>

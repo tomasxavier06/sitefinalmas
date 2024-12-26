@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Criar/Editar CV</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style> 
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px; 
+            text-decoration: none;
+            padding: 0.5rem 2rem; 
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Main Section */
+        .main-section {
+            padding: 4rem 1rem;
+            flex: 1;
+        }
+        .main-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Button Center */
+        .center-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .form-section .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-section label {
+            font-weight: 600;
+        }
+        .btn-save {
+            background-color: #00BFFF;
+            color: #000;
+            font-weight: 600;
+            border-radius: 5px;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-save:hover {
+            background-color: #0099cc;
+            color: #fff;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50;
+            color: #000;
+            font-weight: 600;
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-edit:hover {
+            background-color: #45a049;
+            color: #fff;
+        }
+
+        /* CV Display Section */
+        .cv-section {
+            background-color: #333742;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .cv-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        .cv-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .cv-label {
+            font-weight: 600;
+            color: #00BFFF;
+        }
+
+        /* Personality Test Button */
+        .test-btn {
+            background-color: #FF5733;
+            color: #ffffff;
+            font-weight: 600;
+            border-radius: 5px;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            margin-top: 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        .test-btn:hover {
+            background-color: #e04e2d;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .main-section h1 {
+                font-size: 2rem;
+            }
+            .form-section, .cv-section {
+                max-width: 95%;
+            }
+            .form-section .form-group {
+                margin-bottom: 1rem;
+            }
+            .btn-save, .test-btn {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="indexem.html">
+                    <img src="foto.png" alt="RecruitAI Logo" class="logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="vagas.html">Ver Vagas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="candidaturas.html">Minhas Candidaturas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="editar.html">Editar CV</a></li>
+                        <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class="main-section">
+            <div class="container">
+                <!-- Condicional para exibir "Criar CV" ou o CV existente -->
+                <div id="cvContainer">
+                    <!-- Conteúdo gerado pelo JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Recuperar o objeto 'account' do Local Storage
+        const accountData = JSON.parse(localStorage.getItem('account'));
+        const userNameElement = document.getElementById('userName');
+
+        if (accountData && accountData.nome) {
+            // Substituir "Error" pelo nome do usuário
+            userNameElement.textContent = accountData.nome;
+            userNameElement.setAttribute('href', '#');
+
+            // Adicionar funcionalidade de logout ao clicar no nome
+            userNameElement.addEventListener('click', () => {
+                localStorage.removeItem('loggedInAccount'); // Remover a conta do Local Storage
+                window.location.href = 'index.html'; // Redirecionar para a página de login
+            });
+        }
+
+        // Selecionar o container onde o CV ou o botão "Criar CV" será exibido
+        const cvContainer = document.getElementById('cvContainer');
+
+        // Função para renderizar o botão "Criar CV"
+        function renderCreateButton() {
+            cvContainer.innerHTML = `
+                <div class="center-button">
+                    <button id="createCvBtn" class="btn btn-entrar">Criar CV</button>
+                </div>
+            `;
+
+            document.getElementById('createCvBtn').addEventListener('click', renderForm);
+        }
+
+        // Função para renderizar o formulário de criação/edição do CV
+        function renderForm(existingData = {}) {
+            cvContainer.innerHTML = `
+                <form id="cvForm" class="form-section">
+                    <div class="form-group">
+                        <label for="fullName">Nome Completo</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Seu nome completo" value="${existingData.fullName || ''}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Seu email" value="${existingData.email || ''}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Seu telefone" value="${existingData.phone || ''}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Endereço</label>
+                        <input type="text" class="form-control" id="address" placeholder="Seu endereço" value="${existingData.address || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Educação</label>
+                        <textarea class="form-control" id="education" rows="3" placeholder="Sua formação acadêmica">${existingData.education || ''}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience">Experiência Profissional</label>
+                        <textarea class="form-control" id="experience" rows="3" placeholder="Sua experiência profissional">${existingData.experience || ''}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="skills">Habilidades</label>
+                        <input type="text" class="form-control" id="skills" placeholder="Suas habilidades separadas por vírgula" value="${existingData.skills || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="languages">Idiomas</label>
+                        <input type="text" class="form-control" id="languages" placeholder="Idiomas que você fala" value="${existingData.languages || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="certifications">Certificações</label>
+                        <textarea class="form-control" id="certifications" rows="2" placeholder="Suas certificações">${existingData.certifications || ''}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="url" class="form-control" id="linkedin" placeholder="Seu perfil no LinkedIn" value="${existingData.linkedin || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="github">GitHub</label>
+                        <input type="url" class="form-control" id="github" placeholder="Seu perfil no GitHub" value="${existingData.github || ''}">
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Resumo Profissional</label>
+                        <textarea class="form-control" id="summary" rows="3" placeholder="Um breve resumo sobre você">${existingData.summary || ''}</textarea>
+                    </div>
+                    <button type="submit" class="btn-save">Guardar CV</button>
+                    <a href="https://www.16personalities.com/free-personality-test" target="_blank" class="test-btn">Faz este exame de personalidade para melhores correspondências</a>
+                </form>
+            `;
+
+            // Adicionar evento de submissão do formulário
+            document.getElementById('cvForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                saveCV();
+            });
+        }
+
+        // Função para salvar o CV no Local Storage
+        function saveCV() {
+            const cvData = {
+                fullName: document.getElementById('fullName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                education: document.getElementById('education').value.trim(),
+                experience: document.getElementById('experience').value.trim(),
+                skills: document.getElementById('skills').value.trim(),
+                languages: document.getElementById('languages').value.trim(),
+                certifications: document.getElementById('certifications').value.trim(),
+                linkedin: document.getElementById('linkedin').value.trim(),
+                github: document.getElementById('github').value.trim(),
+                summary: document.getElementById('summary').value.trim()
+            };
+
+            // Salvar no Local Storage
+            localStorage.setItem('userCV', JSON.stringify(cvData));
+
+            // Renderizar o CV na página
+            renderCV(cvData);
+        }
+
+        // Função para renderizar o CV na página
+        function renderCV(cvData) {
+            cvContainer.innerHTML = `
+                <div class="cv-section">
+                    <h2>Meu Currículo</h2>
+                    <p><span class="cv-label">Nome Completo:</span> ${cvData.fullName}</p>
+                    <p><span class="cv-label">Email:</span> ${cvData.email}</p>
+                    <p><span class="cv-label">Telefone:</span> ${cvData.phone}</p>
+                    <p><span class="cv-label">Endereço:</span> ${cvData.address}</p>
+                    <p><span class="cv-label">Educação:</span> ${cvData.education}</p>
+                    <p><span class="cv-label">Experiência Profissional:</span> ${cvData.experience}</p>
+                    <p><span class="cv-label">Habilidades:</span> ${cvData.skills}</p>
+                    <p><span class="cv-label">Idiomas:</span> ${cvData.languages}</p>
+                    <p><span class="cv-label">Certificações:</span> ${cvData.certifications}</p>
+                    <p><span class="cv-label">LinkedIn:</span> <a href="${cvData.linkedin}" target="_blank" style="color: #00BFFF;">${cvData.linkedin}</a></p>
+                    <p><span class="cv-label">GitHub:</span> <a href="${cvData.github}" target="_blank" style="color: #00BFFF;">${cvData.github}</a></p>
+                    <p><span class="cv-label">Resumo Profissional:</span> ${cvData.summary}</p>
+                    <button id="editCvBtn" class="btn-edit">Editar</button>
+                </div>
+                <a href="https://www.16personalities.com/free-personality-test" target="_blank" class="test-btn">Faz este exame de personalidade para melhores correspondências</a>
+            `;
+
+            // Adicionar evento ao botão "Editar"
+            document.getElementById('editCvBtn').addEventListener('click', () => {
+                renderForm(cvData);
+            });
+        }
+
+        // Inicialização: verificar se existe um CV salvo
+        const savedCV = JSON.parse(localStorage.getItem('userCV'));
+
+        if (savedCV) {
+            renderCV(savedCV);
+        } else {
+            renderCreateButton();
+        }
+    </script>
+</body>
+</html>

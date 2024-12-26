@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Criar Vaga</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style> 
+    body {
+        background-color: #222832;
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Navbar */
+    .navbar {
+        background: rgba(44, 44, 44, 0.9);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .navbar-brand img {
+        height: 80px;
+        width: auto;
+    }
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-nav a {
+        color: #ffffff !important;
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+        transition: color 0.3s;
+    }
+    .navbar-nav a:hover {
+        color: #00BFFF !important;
+    }
+    .btn-entrar {
+        background-color: #00BFFF;
+        color: #ffffff !important;
+        font-weight: 600;
+        border-radius: 8px; 
+        text-decoration: none;
+        padding: 0.5rem 2rem; 
+    }
+    .btn-entrar:hover {
+        background-color: #0099cc;
+        color: #ffffff !important;
+    }
+
+    /* Form Section */
+    .form-section {
+        padding: 4rem 1rem;
+    }
+    .form-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .form-control {
+        background: #222832;
+        border: 1px solid #444;
+        border-radius: 8px;
+        color: #ffffff;
+        padding: 0.5rem 0.75rem;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+    }
+
+    .form-control::placeholder {
+        color: #ffffff;
+        opacity: 0.7;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        outline: none;
+        border-color: #00BFFF;
+        background: #222832;
+        color: #ffffff;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(100%) brightness(80%);
+    }
+
+    label {
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+    .btn-submit {
+        background-color: #00BFFF;
+        color: #000000;
+        font-weight: 600;
+        border-radius: 5px;
+        width: 100%;
+        padding: 0.7rem;
+        border: none;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+    }
+    .btn-submit:hover {
+        background-color: #0099cc;
+        color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+        background: #2c2c2c;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #cccccc;
+    }
+    footer p {
+        margin: 0;
+    }
+
+    @media (max-width: 767px) {
+        .form-section h1 {
+            font-size: 2rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="indexre.html">
+                <img src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="vaga.html">Criar Vaga</a></li>
+                    <li class="nav-item"><a class="nav-link" href="candidatos.html">Ver Candidatos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Gerir.html">Gerir Vagas</a></li>
+                    <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <h1>Criar Nova Vaga</h1>
+            <form id="jobForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="companyName">Nome da Empresa</label>
+                            <input type="text" id="companyName" class="form-control" placeholder="Ex: TechSolutions Lda." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobTitle">Vaga a Promover</label>
+                            <input type="text" id="jobTitle" class="form-control" placeholder="Ex: Desenvolvedor Full-Stack" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="salary">Salário da Vaga</label>
+                            <input type="text" id="salary" class="form-control" placeholder="Ex: 2000€ - 2500€/mês" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workHours">Carga Horária Semanal</label>
+                            <select id="workHours" class="form-control" required>
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="full-time">Full-Time</option>
+                                <option value="part-time">Part-Time</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobLocation">Localização da Vaga</label>
+                            <input type="text" id="jobLocation" class="form-control" placeholder="Ex: Lisboa, Remoto, Híbrido" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">Data de Início Prevista</label>
+                            <input type="date" id="startDate" class="form-control" placeholder="dd/mm/aaaa" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="jobDetails">Mais Detalhes Sobre a Vaga</label>
+                            <textarea id="jobDetails" class="form-control" rows="5" placeholder="Descreva as responsabilidades, equipa, cultura da empresa..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="filters">Filtros para a IA</label>
+                            <input type="text" id="filters" class="form-control" placeholder="Ex: JavaScript, 3 anos de experiência, Certificação Scrum" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="benefits">Benefícios e Regalias</label>
+                            <input type="text" id="benefits" class="form-control" placeholder="Ex: Plano de saúde, horários flexíveis, formação contínua" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactEmail">Email de Contacto</label>
+                            <input type="email" id="contactEmail" class="form-control" placeholder="Ex: recrutamento@techsolutions.com" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Criar Vaga</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const jobForm = document.getElementById('jobForm');
+        jobForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Obter valores de todos os campos
+            const companyName = document.getElementById('companyName').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+            const salary = document.getElementById('salary').value;
+            const workHours = document.getElementById('workHours').value;
+            const jobLocation = document.getElementById('jobLocation').value;
+            const startDate = document.getElementById('startDate').value;
+            const jobDetails = document.getElementById('jobDetails').value;
+            const filters = document.getElementById('filters').value;
+            const benefits = document.getElementById('benefits').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+
+            // Obter array de vagas já armazenadas
+            let storedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
+
+            // Criar objeto da nova vaga
+            const newJob = {
+                companyName: companyName,
+                jobTitle: jobTitle,
+                salary: salary,
+                workHours: workHours,
+                jobLocation: jobLocation,
+                startDate: startDate,
+                jobDetails: jobDetails,
+                filters: filters,
+                benefits: benefits,
+                contactEmail: contactEmail
+            };
+
+            // Adicionar a nova vaga ao array existente
+            storedJobs.push(newJob);
+
+            // Guardar o array atualizado no localStorage
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+
+            // Limpar o formulário e notificar o utilizador
+            jobForm.reset();
+            alert('Vaga criada e armazenada com sucesso!');
+        });
+    </script>
+     <script>
+        // Recuperar o objeto 'account' do Local Storage
+        const accountData = JSON.parse(localStorage.getItem('account'));
+
+        // Atualizar o nome do usuário na navbar
+        const userNameElement = document.getElementById('userName');
+
+        if (accountData && accountData.nome) {
+            // Substituir "Entrar" pelo nome do usuário
+            userNameElement.textContent = accountData.nome;
+            userNameElement.setAttribute('href', '#');
+
+            // Adicionar funcionalidade de logout ao clicar no nome
+            userNameElement.addEventListener('click', () => {
+                localStorage.removeItem('loggedInAccount'); // Remover a conta do Local Storage
+                window.location.href = 'index.html'; // Redirecionar para a página de login
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Dicas de Carreira</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px; 
+            text-decoration: none;
+            padding: 0.5rem 2rem; 
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            padding: 4rem 1rem;
+        }
+        .tips-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .tip-card {
+            background-color: #333742;
+            border: none;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .tip-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .tip-card p {
+            font-size: 1rem;
+            line-height: 1.6rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .tips-section h1 {
+                font-size: 2rem;
+            }
+            .tip-card h3 {
+                font-size: 1.3rem;
+            }
+            .tip-card p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQs.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dicas.html">Dicas de Carreira</a></li>
+                    <li class="nav-item"><a class="nav-link btn-entrar" style="padding-left: 20px; padding-right: 20px;"href="login.html">Entrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <h1>Dicas de Carreira: Aprimore o Seu Currículo</h1>
+
+            <div class="tip-card">
+                <h3>1. Destaque as Suas Habilidades-Chave</h3>
+                <p>Antes de tudo, identifique as competências mais relevantes para a vaga a que se candidata. Destaque essas habilidades no seu CV de forma clara e objetiva, permitindo que o recrutador as encontre rapidamente. Use palavras-chave que correspondam à descrição da vaga.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>2. Simplifique o Formato</h3>
+                <p>Opte por um layout limpo, organizado e fácil de ler. Evite fontes decorativas, cores muito fortes ou elementos gráficos excessivos. Uma apresentação simples e profissional transmite seriedade e ajuda o recrutador a focar no conteúdo.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>3. Adapte o CV à Função</h3>
+                <p>Cada vaga tem as suas especificidades. Ajuste o seu CV a cada candidatura, destacando projetos, experiências ou formações relevantes para aquela oportunidade. Isso mostra ao recrutador que você compreende as necessidades da posição e está alinhado com os requisitos.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>4. Enfatize Resultados em Vez de Tarefas</h3>
+                <p>Em vez de apenas listar as funções que desempenhou em empregos anteriores, descreva conquistas concretas, números e resultados mensuráveis. Por exemplo, "Aumentei as vendas em 20%" ou "Implementei uma solução que reduziu o tempo de processamento em 30%".</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>5. Revise e Atualize Regularmente</h3>
+                <p>Erros ortográficos ou informações desatualizadas podem prejudicar a sua imagem. Revise o seu CV com frequência, mantenha as informações atualizadas e peça feedback a colegas ou mentores. Um documento bem-polido faz toda a diferença na hora de impressionar um recrutador.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

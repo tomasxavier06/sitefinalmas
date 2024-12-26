@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 60px;
+            width: auto;
+        }
+
+        .login-section {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem; 
+        }
+
+        .login-wrapper {
+            background-color: #2E3440; 
+            border-radius: 20px;
+            padding: 1.5rem; 
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+
+        .login-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-col, .form-col {
+            flex: 1;
+            min-width: 300px;
+            margin: 1rem;
+        }
+
+        .image-col img {
+            display: block;
+            margin: 0 auto;
+            height: 350px; 
+            width: 350px;
+            object-fit: cover;
+        }
+
+        .form-col h2 {
+            text-align: left;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .form-control {
+            background: #222832;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            color: #ffffff;
+            padding: 0.5rem 0.75rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            outline: none;
+            border-color: #00BFFF;
+            background: #222832;
+            color: #ffffff;
+        }
+
+        .btn-login {
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: 600;
+            border-radius: 5px;
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+        .btn-login:hover {
+            background-color: #e0e0e0;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .register-link a {
+            color: #00BFFF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #ff6666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display:none;
+        }
+
+        @media (max-width: 767px) {
+            .login-row {
+                flex-direction: column;
+            }
+            .form-col h2 {
+                font-size: 1.2rem;
+            }
+            .btn-login {
+                font-size: 0.9rem;
+            }
+            .image-col img {
+                height: 300px; 
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar mínima apenas com o logotipo -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img style="height: 80px; width: 80px;" src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Seção de Login -->
+    <section class="login-section">
+        <div class="login-wrapper">
+            <div class="login-row">
+                <div class="image-col">
+                    <img src="foto.png" alt="Imagem Ilustrativa">
+                </div>
+                <div class="form-col">
+                    <h2>LOGIN</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn-login">ENTRAR</button>
+                        <div class="error-message" id="loginError">Email ou senha errados</div>
+                    </form>
+                    <div class="register-link">
+                        Ainda não tem conta? <a href="Registo.html">Registe-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+    
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+    
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+    
+            // Recuperar dados do Local Storage
+            const accountData = JSON.parse(localStorage.getItem('account'));
+    
+            // Verificar se os dados correspondem
+            if (accountData && accountData.email === email && accountData.password === password) {
+                // Login bem-sucedido
+                alert(`Bem-vindo, ${accountData.nome}!`);
+                localStorage.setItem('loggedInAccount', JSON.stringify(accountData)); // Salvar como conta logada
+                
+                // Verificar o tipo de conta e redirecionar
+                if (accountData.tipoConta === "recrutador") {
+                    window.location.href = 'indexre.html';
+                } else if (accountData.tipoConta === "empregado") {
+                    window.location.href = 'indexem.html';
+                } else {
+                    // Caso de segurança se tipoConta não for nenhum dos esperados
+                    window.location.href = 'index.html';
+                }
+    
+            } else {
+                // Mostrar mensagem de erro
+                loginError.style.display = 'block';
+            }
+        });
+    </script>    
+</body>
+</html>

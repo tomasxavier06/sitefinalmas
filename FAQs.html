@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Página Inicial</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            background-color: #222832;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(44, 44, 44, 0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .navbar-brand img {
+            height: 80px;
+            width: auto;
+        }
+        .navbar-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar-nav a {
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: color 0.3s;
+        }
+        .navbar-nav a:hover {
+            color: #00BFFF !important;
+        }
+        .btn-entrar {
+            background-color: #00BFFF;
+            color: #ffffff !important;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            padding: 0.5rem 2rem;
+        }
+        .btn-entrar:hover {
+            background-color: #0099cc;
+            color: #ffffff !important;
+        }
+
+        /* Work Section */
+        .work-section {
+            padding: 4rem 1rem;
+        }
+        .work-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .work-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        .work-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: #2E3440;
+            padding: 3rem 1rem;
+        }
+        .faq-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background-color: #333742;
+            border: none;
+            margin-bottom: 1rem;
+        }
+        .card-header {
+            background-color: #333742;
+            border: none;
+        }
+        .card-header h5 {
+            margin-bottom: 0;
+        }
+        .card-header button {
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            width: 100%;
+            background: none;
+            border: none;
+        }
+        .card-header button:hover, .card-header button:focus {
+            text-decoration: none;
+            color: #00BFFF;
+            outline: none;
+        }
+        .card-body {
+            background-color: #222832;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .work-content h1 {
+                font-size: 2rem;
+            }
+            .work-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="FAQs.html">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Dicas.html">Dicas de Carreira</a></li>
+                    <li class="nav-item"><a class="nav-link btn-entrar" style="padding-left: 20px; padding-right: 20px;" href="login.html">Entrar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Work Section -->
+    <section class="work-section">
+        <div class="container work-content">
+            <h1>O Nosso Trabalho</h1>
+            <p>
+                Na RecruitAI, acreditamos que a tecnologia pode transformar o futuro do recrutamento. 
+                A nossa missão é simplificar a busca por talentos, combinando inteligência artificial avançada com 
+                ferramentas de análise de perfis comportamentais, garantindo que os recrutadores encontrem os 
+                candidatos mais alinhados às suas necessidades. Além disso, proporcionamos uma experiência intuitiva e 
+                eficiente para recrutadores e candidatos, ajudando a construir conexões significativas no mercado de trabalho.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Perguntas Frequentes</h2>
+        <div class="accordion" id="faqAccordion">
+
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5>
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" 
+                                aria-expanded="true" aria-controls="collapseOne">
+                            Como a RecruitAI utiliza a Inteligência Artificial no recrutamento?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        A RecruitAI integra algoritmos de IA para analisar perfis de candidatos, sugerir correspondências entre vagas e talentos e fornecer insights baseados em dados, ajudando os recrutadores a encontrar rapidamente os candidatos ideais.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" 
+                                aria-expanded="false" aria-controls="collapseTwo">
+                            Posso personalizar os critérios de pesquisa e filtragem de candidatos?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Sim, você pode personalizar completamente os critérios de pesquisa com base nas exigências específicas de cada vaga, como habilidades técnicas, experiência mínima, idiomas, entre outros. Isso torna o processo mais direcionado e eficiente.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" 
+                                aria-expanded="false" aria-controls="collapseThree">
+                            Os candidatos podem atualizar os seus perfis regularmente?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Sim. Os candidatos podem atualizar seus perfis e currículos a qualquer momento, o que garante que as informações disponíveis aos recrutadores estejam sempre atualizadas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5>
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" 
+                                aria-expanded="false" aria-controls="collapseFour">
+                            Quais são os principais benefícios de usar a RecruitAI?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        A RecruitAI oferece diversos benefícios, incluindo a aceleração do processo de recrutamento, recomendações inteligentes de candidatos com base em dados e perfis comportamentais, e ferramentas fáceis de usar para gerenciar vagas e candidatos. Além disso, ajudamos a reduzir o tempo e o custo associados à contratação, permitindo decisões mais assertivas e estratégicas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

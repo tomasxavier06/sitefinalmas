@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecruitAI - Gerir Vagas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <style> 
+    /* Layout flexbox para garantir que o footer fique no fundo */
+    body {
+        background-color: #222832;
+        color: #ffffff;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Navbar */
+    .navbar {
+        background: rgba(44, 44, 44, 0.9);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .navbar-brand img {
+        height: 80px;
+        width: auto;
+    }
+    .navbar-nav {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar-nav a {
+        color: #ffffff !important;
+        font-weight: 600;
+        padding: 0.75rem 1rem;
+        transition: color 0.3s;
+    }
+    .navbar-nav a:hover {
+        color: #00BFFF !important;
+    }
+    .btn-entrar {
+        background-color: #00BFFF;
+        color: #ffffff !important;
+        font-weight: 600;
+        border-radius: 8px; 
+        text-decoration: none;
+        padding: 0.5rem 2rem; 
+    }
+    .btn-entrar:hover {
+        background-color: #0099cc;
+        color: #ffffff !important;
+    }
+
+    /* Main Section */
+    .main-section {
+        padding: 4rem 1rem;
+    }
+    .main-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    /* Tabela de Vagas */
+    .jobs-table {
+        background-color: #333742;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    table {
+        width: 100%;
+        color: #ffffff;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #444;
+        vertical-align: middle;
+    }
+    th {
+        text-align: left;
+        font-weight: 600;
+    }
+    .delete-btn {
+        background-color: #ff4c4c;
+        border: none;
+        color: #ffffff;
+        padding: 0.4rem 0.8rem;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+    .delete-btn:hover {
+        background-color: #e60000;
+    }
+
+    /* Footer */
+    footer {
+        background: #2c2c2c;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #cccccc;
+    }
+
+    @media (max-width: 767px) {
+        .main-section h1 {
+            font-size: 2rem;
+        }
+        th, td {
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="indexre.html">
+                <img src="foto.png" alt="RecruitAI Logo" class="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="vaga.html">Criar Vaga</a></li>
+                    <li class="nav-item"><a class="nav-link" href="candidatos.html">Ver Candidatos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Gerir.html">Gerir Vagas</a></li>
+                    <li class="nav-item"><a id="userName" class="user-name" href="#">Error</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="main-section">
+            <div class="container">
+                <h1>Gerir Vagas</h1>
+                <div class="jobs-table">
+                    <table id="jobsTable">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Função</th>
+                                <th>Carga Horária</th>
+                                <th>Salário</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Conteúdo gerado dinamicamente por JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 RecruitAI. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Atualizar o nome do usuário na navbar
+        const accountData = JSON.parse(localStorage.getItem('account'));
+        const userNameElement = document.getElementById('userName');
+
+        if (accountData && accountData.nome) {
+            userNameElement.textContent = accountData.nome;
+            userNameElement.setAttribute('href', '#');
+            userNameElement.addEventListener('click', () => {
+                localStorage.removeItem('loggedInAccount');
+                window.location.href = 'index.html';
+            });
+        }
+
+        // Obter vagas armazenadas
+        let storedJobs = JSON.parse(localStorage.getItem('jobs')) || [];
+
+        const jobsTableBody = document.querySelector('#jobsTable tbody');
+
+        function renderJobs() {
+            jobsTableBody.innerHTML = '';
+            storedJobs.forEach((job, index) => {
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
+                    <td>${job.companyName}</td>
+                    <td>${job.jobTitle}</td>
+                    <td>${job.workHours}</td>
+                    <td>${job.salary}</td>
+                    <td><button class="delete-btn" data-index="${index}">Eliminar</button></td>
+                `;
+
+                jobsTableBody.appendChild(row);
+            });
+
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    deleteJob(index);
+                });
+            });
+        }
+
+        function deleteJob(index) {
+            storedJobs.splice(index, 1);
+            localStorage.setItem('jobs', JSON.stringify(storedJobs));
+            renderJobs();
+        }
+
+        renderJobs();
+    </script>
+</body>
+</html>
