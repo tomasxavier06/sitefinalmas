@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    
     <style> 
     body {
         background-color: #222832;
@@ -51,9 +52,9 @@
         background-color: #00BFFF;
         color: #ffffff !important;
         font-weight: 600;
-        border-radius: 8px; /* Deixa os cantos levemente arredondados */
+        border-radius: 8px;
         text-decoration: none;
-        padding: 0.5rem 2rem; /* Padding vertical e horizontal balanceados */
+        padding: 0.5rem 2rem;
     }
     .btn-entrar:hover {
         background-color: #0099cc;
@@ -126,7 +127,7 @@
             font-size: 1.3em;
         }
     }
-        </style>
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -135,8 +136,16 @@
             <a class="navbar-brand" href="indexre.html">
                 <img src="foto.png" alt="RecruitAI Logo" class="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Botão que aparecerá quando a navbar estiver colapsada -->
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-toggle="collapse" 
+                data-target="#navbarNav" 
+                aria-controls="navbarNav" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
         
@@ -150,6 +159,7 @@
             </div>
         </div>
     </nav>
+
     <section class="hero-section text-center">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -161,20 +171,31 @@
                     <p style="font-size: 1.1rem; line-height: 1.6rem; margin-bottom: 1.5rem;">
                         Na RecruitAI, estamos comprometidos em oferecer as melhores ferramentas e tecnologias para facilitar o seu processo de recrutamento, tornando-o mais eficiente, inteligente e assertivo. É por isso que temos o orgulho de trabalhar com parceiros estratégicos como a <strong>OpenAI</strong> e o <strong>16Personalities.com</strong>.
                     </p>
-                </div>                
+                </div>
             </div>
         </div>
     </section>
-    <section class="about-section text-center">     
+
+    <section class="about-section text-center">
+        <div class="container">
             <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem;">OpenAI: Inteligência Artificial a Serviço do Recrutamento</h3>
             <p style="font-size: 1rem; line-height: 1.5rem;">
                 A OpenAI é líder global no desenvolvimento de tecnologias de Inteligência Artificial, permitindo-nos integrar soluções avançadas para análise de candidatos, recomendações personalizadas e otimização de vagas. Graças a essa parceria, você pode identificar rapidamente os melhores perfis para suas vagas com base em dados e inteligência preditiva, gerar descrições de vagas atraentes e otimizadas para captar talentos de alta qualidade e ainda analisar tendências e habilidades do mercado de trabalho, ajudando em decisões estratégicas.
-            </p>            
+            </p>
         </div>
     </section>
+
     <footer>
         <p>&copy; 2024 RecruitAI - Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Scripts necessários para o Bootstrap 4 (coloque-os antes do seu script custom) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js é necessário para a funcionalidade do dropdown e do collapsible -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <!-- Script para manipular o Local Storage -->
     <script>
         // Recuperar o objeto 'account' do Local Storage
@@ -184,14 +205,14 @@
         const userNameElement = document.getElementById('userName');
 
         if (accountData && accountData.nome) {
-            // Substituir "Entrar" pelo nome do usuário
+            // Substituir "Entrar" (ou "Error") pelo nome do usuário
             userNameElement.textContent = accountData.nome;
             userNameElement.setAttribute('href', '#');
 
             // Adicionar funcionalidade de logout ao clicar no nome
             userNameElement.addEventListener('click', () => {
-                localStorage.removeItem('loggedInAccount'); // Remover a conta do Local Storage
-                window.location.href = 'index.html'; // Redirecionar para a página de login
+                localStorage.removeItem('loggedInAccount'); // Remove a conta do Local Storage
+                window.location.href = 'index.html'; // Redireciona para a página de login
             });
         }
     </script>
